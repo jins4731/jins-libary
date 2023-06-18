@@ -1,7 +1,4 @@
 import * as React from "react"
-
-import { Link } from 'theme-ui'
-import { Flex } from 'theme-ui'
 import { NavLink } from 'theme-ui'
 
 const Layout = ({ location, title, children }) => {

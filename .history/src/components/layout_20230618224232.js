@@ -12,10 +12,13 @@ const Layout = ({ location, title, children }) => {
   if (isRootPath) {
     header = (
       <Flex as="nav">
-        <NavLink href="/" p={2}>
+        <NavLink href="#!" p={2}>
           Home
         </NavLink>
-        <NavLink href="/" p={2}>
+        <NavLink href="#!" p={2}>
+          Blog
+        </NavLink>
+        <NavLink href="#!" p={2}>
           About
         </NavLink>
       </Flex>

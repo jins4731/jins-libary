@@ -17,7 +17,7 @@ module.exports = {
     description: ``,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
-      tistory: `https://espania.tistory.com/`,
+      twitter: ``,
     },
   },
   plugins: [

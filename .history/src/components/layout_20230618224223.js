@@ -2,7 +2,8 @@ import * as React from "react"
 
 import { Link } from 'theme-ui'
 import { Flex } from 'theme-ui'
-import { NavLink } from 'theme-ui'
+import { Alert } from 'theme-ui'
+import { Box } from 'theme-ui'
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -12,10 +13,13 @@ const Layout = ({ location, title, children }) => {
   if (isRootPath) {
     header = (
       <Flex as="nav">
-        <NavLink href="/" p={2}>
+        <NavLink href="#!" p={2}>
           Home
         </NavLink>
-        <NavLink href="/" p={2}>
+        <NavLink href="#!" p={2}>
+          Blog
+        </NavLink>
+        <NavLink href="#!" p={2}>
           About
         </NavLink>
       </Flex>

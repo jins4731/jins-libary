@@ -1,8 +1,7 @@
 import * as React from "react"
-
+import { NavLink } from 'theme-ui'
 import { Link } from 'theme-ui'
 import { Flex } from 'theme-ui'
-import { NavLink } from 'theme-ui'
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`

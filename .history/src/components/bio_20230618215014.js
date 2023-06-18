@@ -19,9 +19,6 @@ const Bio = () => {
             name
             summary
           }
-          social {
-            tistory
-          }
         }
       }
     }
@@ -45,19 +42,16 @@ const Bio = () => {
         alt="Profile picture"
       />
       {
-        <h2>
-          {title}
-        </h2>
+        
+          <h2>
+            {title}
+          </h2>
+        
       }
       {author?.name && (
         <p>
           Written by <strong>{author.name}</strong> {author?.summary || null}
         </p>
-      )}
-      {social?.tistory && (
-        <a href={social.tistory}>
-          Tistory Blog
-        </a>
       )} 
     </div>
   )

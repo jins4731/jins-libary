@@ -31,7 +31,7 @@ const Bio = () => {
   console.log(data.site.siteMetadata);
   const title = data.site.siteMetadata?.title
   const author = data.site.siteMetadata?.author
-  const social = data.site.siteMetadata?.social
+  const tistory = data.site.siteMetadata?.tistory
 
   return (
     <div className={"bio"}>
@@ -54,8 +54,8 @@ const Bio = () => {
           Written by <strong>{author.name}</strong> {author?.summary || null}
         </p>
       )}
-      {social?.tistory && (
-        <a href={social.tistory}>
+      {tistory && (
+        <a href={tistory}>
           Tistory Blog
         </a>
       )} 

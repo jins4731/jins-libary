@@ -1,8 +1,6 @@
 import * as React from "react"
-
-import { Link } from 'theme-ui'
-import { Flex } from 'theme-ui'
-import { NavLink } from 'theme-ui'
+import { Link } from "gatsby"
+import { Input } from 'theme-ui'
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -11,14 +9,10 @@ const Layout = ({ location, title, children }) => {
 
   if (isRootPath) {
     header = (
-      <Flex as="nav">
-        <NavLink href="/" p={2}>
-          Home
-        </NavLink>
-        <NavLink href="/" p={2}>
-          About
-        </NavLink>
-      </Flex>
+      <h1 className="main-heading">
+        <Input defaultValue="Hello" />
+        <Link to="/">{title}</Link>
+      </h1>
     )
   } else {
     header = (

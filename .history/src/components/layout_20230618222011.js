@@ -1,9 +1,9 @@
 import * as React from "react"
-
+import { NavLink } from 'theme-ui'
 import { Link } from 'theme-ui'
 import { Flex } from 'theme-ui'
-import { NavLink } from 'theme-ui'
-
+import { Message } from 'theme-ui'
+import { Box } from 'theme-ui'
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
@@ -11,14 +11,14 @@ const Layout = ({ location, title, children }) => {
 
   if (isRootPath) {
     header = (
-      <Flex as="nav">
-        <NavLink href="/" p={2}>
-          Home
-        </NavLink>
-        <NavLink href="/" p={2}>
-          About
-        </NavLink>
-      </Flex>
+      <Flex>
+  <Box p={2} bg="primary" color="white" sx={{ flex: '1 1 auto' }}>
+    Flex
+  </Box>
+  <Box p={2} bg="muted">
+    Box
+  </Box>
+</Flex>
     )
   } else {
     header = (
