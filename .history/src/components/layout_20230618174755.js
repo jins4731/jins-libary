@@ -2,7 +2,6 @@ import * as React from "react"
 import { Link } from "gatsby"
 
 const Layout = ({ location, title, children }) => {
-  console.log(children);
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -15,7 +14,7 @@ const Layout = ({ location, title, children }) => {
     )
   } else {
     header = (
-      <Link className="header-link-home" to="/">
+      <Link className="header-link-home" to="/e">
         {title}
       </Link>
     )

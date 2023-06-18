@@ -19,6 +19,7 @@ module.exports = {
     social: {
       twitter: ``,
     },
+    date: `2023-06-18`
   },
   plugins: [
     `gatsby-plugin-image`,
