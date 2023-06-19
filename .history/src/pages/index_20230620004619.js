@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { Grid } from "@mui/material"
+import { Container, Grid } from "@mui/material"
 
 
 const BlogIndex = ({ data, location }) => {

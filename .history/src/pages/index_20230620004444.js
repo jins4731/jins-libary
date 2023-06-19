@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { Grid } from "@mui/material"
+import { Container, Grid } from "@mui/material"
 
 
 const BlogIndex = ({ data, location }) => {
@@ -32,8 +32,8 @@ const BlogIndex = ({ data, location }) => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <li key={post.fields.slug}>
-              <Grid
+            <Container key={post.fields.slug}>
+              <Grid p={3}
                 className="post-list-item"
               >
                 <header>
@@ -53,7 +53,7 @@ const BlogIndex = ({ data, location }) => {
                   />
                 </section>
               </Grid>
-            </li>
+            </Container>
           )
         })}
       </ol>
