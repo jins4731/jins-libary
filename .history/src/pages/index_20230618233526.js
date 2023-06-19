@@ -32,7 +32,7 @@ const BlogIndex = ({ data, location }) => {
 
           return (
             <li key={post.fields.slug}>
-              <Container p={3}
+              <article
                 className="post-list-item"
               >
                 <header>
@@ -51,7 +51,7 @@ const BlogIndex = ({ data, location }) => {
                     itemProp="description"
                   />
                 </section>
-              </Container>
+              </article>
             </li>
           )
         })}

@@ -4,7 +4,6 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { Container } from 'theme-ui'
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -32,8 +31,10 @@ const BlogIndex = ({ data, location }) => {
 
           return (
             <li key={post.fields.slug}>
-              <Container p={3}
+              <article
                 className="post-list-item"
+                itemScope
+                itemType="http://schema.org/Article"
               >
                 <header>
                   <h2>
@@ -51,7 +52,7 @@ const BlogIndex = ({ data, location }) => {
                     itemProp="description"
                   />
                 </section>
-              </Container>
+              </article>
             </li>
           )
         })}

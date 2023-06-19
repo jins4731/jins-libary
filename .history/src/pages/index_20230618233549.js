@@ -32,7 +32,7 @@ const BlogIndex = ({ data, location }) => {
 
           return (
             <li key={post.fields.slug}>
-              <Container p={3}
+              <Container
                 className="post-list-item"
               >
                 <header>
