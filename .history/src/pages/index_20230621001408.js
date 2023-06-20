@@ -5,7 +5,6 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Card, CardContent, CardMedia, Grid} from "@mui/material"
-import { StaticImage } from "gatsby-plugin-image"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -30,7 +29,6 @@ const BlogIndex = ({ data, location }) => {
       <Grid 
         container
         justifyContent={"center"}
-        spacing="5"
       >
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
@@ -40,19 +38,12 @@ const BlogIndex = ({ data, location }) => {
               <Card
                 elevation={8}
               >
-                {/* <CardMedia
+                <CardMedia
                   component={"img"}
                   sx={{ height: 120 }}
-                  //image={"https://picsum.photos/400/300"}
-                  //image={require("../images/Life-cycle.jpg")}
-                  src={require("../images/Life-cycle.jpg")}
+                  //image={"../images/Life-cycle.jpg"}
+                  src={"../images/Life-cycle.jpg"}
                   title="green iguana"
-                /> */}
-                <StaticImage
-                  src="../images/Life-cycle.jpg"
-                  quality={95}
-                  alt="Profile picture"
-                  layout={"fullWidth"}
                 />
                 <CardContent>
                   <h5>

@@ -30,7 +30,6 @@ const BlogIndex = ({ data, location }) => {
       <Grid 
         container
         justifyContent={"center"}
-        spacing="5"
       >
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug

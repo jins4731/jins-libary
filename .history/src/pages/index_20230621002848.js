@@ -30,7 +30,6 @@ const BlogIndex = ({ data, location }) => {
       <Grid 
         container
         justifyContent={"center"}
-        spacing="5"
       >
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
@@ -52,7 +51,6 @@ const BlogIndex = ({ data, location }) => {
                   src="../images/Life-cycle.jpg"
                   quality={95}
                   alt="Profile picture"
-                  layout={"fullWidth"}
                 />
                 <CardContent>
                   <h5>

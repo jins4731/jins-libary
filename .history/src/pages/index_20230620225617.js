@@ -4,8 +4,9 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { Card, CardContent, CardMedia, Grid} from "@mui/material"
+import { Container, Grid, Paper } from "@mui/material"
 import { StaticImage } from "gatsby-plugin-image"
+
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -27,39 +28,31 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
-      <Grid 
-        container
-        justifyContent={"center"}
-        spacing="5"
-      >
+      <Grid container rowSpacing={5} style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <Grid item md={5} key={post.fields.slug} style={{border: "1px solid black"}}>
-              <Card
-                elevation={8}
+            <Grid xs={5} md={3} key={post.fields.slug}>
+              <Paper
+                elevation={0}
+                variant="outlined"
+                className="post-list-item"
               >
-                {/* <CardMedia
-                  component={"img"}
-                  sx={{ height: 120 }}
-                  //image={"https://picsum.photos/400/300"}
-                  //image={require("../images/Life-cycle.jpg")}
-                  src={require("../images/Life-cycle.jpg")}
-                  title="green iguana"
-                /> */}
+                <Grid>
                 <StaticImage
+                  layout={"fullWidth"}
                   src="../images/Life-cycle.jpg"
                   quality={95}
                   alt="Profile picture"
-                  layout={"fullWidth"}
                 />
-                <CardContent>
-                  <h5>
+                </Grid>
+                <Grid>
+                  <h2>
                     <Link to={post.fields.slug} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
-                  </h5>
+                  </h2>
                   <small>{post.frontmatter.date}</small>
                   <p
                     dangerouslySetInnerHTML={{
@@ -67,8 +60,8 @@ const BlogIndex = ({ data, location }) => {
                     }}
                     itemProp="description"
                   />
-                </CardContent>
-              </Card>
+                </Grid>
+              </Paper>
             </Grid>
           )
         })}
