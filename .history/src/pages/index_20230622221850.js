@@ -36,7 +36,7 @@ const BlogIndex = ({ data, location }) => {
           {posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
             const thumbnail = getImage(post.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData);
-
+            console.log(typeof thumbnail)
             return (
               <Grid 
                 item 

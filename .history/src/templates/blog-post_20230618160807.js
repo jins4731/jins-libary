@@ -4,16 +4,12 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Header from "../components/header"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Grid } from "@mui/material"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
   location,
 }) => {
   const siteTitle = site.siteMetadata?.title || `Title`
-  const thumbnail = getImage(post.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData);
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -95,11 +91,6 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-        thumbnail {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

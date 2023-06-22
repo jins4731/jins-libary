@@ -31,12 +31,13 @@ const BlogIndex = ({ data, location }) => {
           container
           alignItems={"center"}
           columnSpacing={2}
-          rowSpacing={3}         
+          rowSpacing={3}
+          md={8}          
         >
           {posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
             const thumbnail = getImage(post.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData);
-
+            console.log(typeof thumbnail)
             return (
               <Grid 
                 item 
@@ -72,6 +73,11 @@ const BlogIndex = ({ data, location }) => {
               </Grid>
             )
           })}
+        </Grid>
+        <Grid
+          md={2}
+        >
+
         </Grid>
     </Layout>
   )

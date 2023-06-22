@@ -6,7 +6,6 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Header from "../components/header"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Grid } from "@mui/material"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -23,6 +22,11 @@ const BlogPostTemplate = ({
         itemType="http://schema.org/Article"
       >
         <header>
+          <div style={{textAlign: "center"}}>
+            <GatsbyImage 
+              image={thumbnail} 
+            />
+          </div>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>

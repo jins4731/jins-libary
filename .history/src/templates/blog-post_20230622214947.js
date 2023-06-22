@@ -5,8 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Header from "../components/header"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Grid } from "@mui/material"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -23,6 +22,11 @@ const BlogPostTemplate = ({
         itemType="http://schema.org/Article"
       >
         <header>
+          <div style={{textAlign: "center"}}>
+            <GatsbyImage 
+              image={thumbnail} 
+            />
+          </div>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
@@ -95,11 +99,6 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-        thumbnail {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

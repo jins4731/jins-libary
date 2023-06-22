@@ -4,8 +4,8 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { Card, CardContent, Grid} from "@mui/material"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Card, CardContent, CardMedia, Grid} from "@mui/material"
+import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -31,12 +31,12 @@ const BlogIndex = ({ data, location }) => {
           container
           alignItems={"center"}
           columnSpacing={2}
-          rowSpacing={3}         
+          rowSpacing={3}          
         >
           {posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
             const thumbnail = getImage(post.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData);
-
+            console.log(typeof thumbnail)
             return (
               <Grid 
                 item 
@@ -50,7 +50,22 @@ const BlogIndex = ({ data, location }) => {
                   <Card
                     elevation={6}
                   >
+                    {/* <CardMedia
+                      component={"img"}
+                      sx={{ height: 120 }}
+                      //image={"https://picsum.photos/400/300"}
+                      //image={require("../images/Life-cycle.jpg")}
+                      src={require("../images/Life-cycle.jpg")}
+                      title="green iguana"
+                    /> */}
                     <div style={{textAlign: "center"}}>
+                      {/* <StaticImage
+                        //src={thumbnail}
+                        src={"../images/thumbnail/react-기본.png"}
+                        quality={95}
+                        alt="Profile picture"
+                        layout="fullWidth"
+                      /> */}
                       <GatsbyImage 
                         image={thumbnail} 
                       />
