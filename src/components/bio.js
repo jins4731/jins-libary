@@ -8,6 +8,8 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { Grid } from "@mui/material"
+import Category from "./category"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
