@@ -22,18 +22,40 @@ const BlogPostTemplate = ({
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
+        <Grid 
+          container
+          columnSpacing={3}
+          rowSpacing={2}
+        >
+          <Grid 
+            item
+            md={8}
+          > 
+            <header>
+              <div style={{textAlign: "center"}}>
+                <GatsbyImage 
+                  image={thumbnail} 
+                />
+              </div>
+              <h1 itemProp="headline">{post.frontmatter.title}</h1>
+              <p>{post.frontmatter.date}</p>
+            </header>
+            <section
+              dangerouslySetInnerHTML={{ __html: post.html }}
+              itemProp="articleBody"
+            />
+            <hr />
+            <footer>
+              <Bio />
+            </footer>
+          </Grid>
+          <Grid 
+            item
+            md={3}
+          >
+
+          </Grid>
+        </Grid>
       </article>
       <nav className="blog-post-nav">
         <ul
