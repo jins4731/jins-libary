@@ -16,7 +16,9 @@ import { useState } from "react";
 
 const Header = () => {
     const [open, setOpen] = useState(false);
+    const onClick = () => {
 
+    }
     return (
         <div>
         <Grid>
@@ -58,7 +60,7 @@ const Header = () => {
                     </ListItemButton>
                   </ListItem>
                   <ListItem disablePadding>
-                    <ListItemButton href="category">
+                    <ListItemButton href="/">
                       <ListItemIcon>
                         <CategoryIcon fontSize="large"/>
                       </ListItemIcon>
