@@ -15,7 +15,8 @@ const categoryList = path.resolve(`./src/templates/category-list.js`)
  */
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
-
+  console.log("createPage");
+  console.log(createPage);
   // Get all markdown blog posts sorted by date
   const result = await graphql(`
     {
@@ -52,7 +53,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const posts = result.data.allMarkdownRemark.nodes
   const categories = result2.data.allMarkdownRemark.nodes
-
+  console.log('ddd');
+  console.log(categories);
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
@@ -75,7 +77,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   if (categories.length > 0) {
-    categories.forEach((category) => {
+    categories.forEach((category, index) => {
       createPage({
         path: '/categories/' + category.frontmatter.category,
         component: categoryList,

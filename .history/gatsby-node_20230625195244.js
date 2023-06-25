@@ -15,7 +15,8 @@ const categoryList = path.resolve(`./src/templates/category-list.js`)
  */
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
-
+  console.log("createPage");
+  console.log(createPage);
   // Get all markdown blog posts sorted by date
   const result = await graphql(`
     {
@@ -75,7 +76,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   if (categories.length > 0) {
-    categories.forEach((category) => {
+    categories.forEach((category, index) => {
       createPage({
         path: '/categories/' + category.frontmatter.category,
         component: categoryList,

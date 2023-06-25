@@ -94,7 +94,8 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { frontmatter: { date: DESC } }      
+      sort: { frontmatter: { date: DESC } }
+      filter: {frontmatter: {category: {eq: "Git"}}}
     ) {
       nodes {
         excerpt

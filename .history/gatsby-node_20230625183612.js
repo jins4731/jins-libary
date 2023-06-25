@@ -9,7 +9,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // Define the template for blog post
 const blogPost = path.resolve(`./src/templates/blog-post.js`)
-const categoryList = path.resolve(`./src/templates/category-list.js`)
+
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
@@ -31,15 +31,35 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   `)
 
   const result2 = await graphql(`
-    {
-      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-        nodes {
-          frontmatter {
-            category
+  {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(
+      sort: { frontmatter: { date: DESC } }
+      filter: {frontmatter: {category: {eq: "Git"}}}
+    ) {
+      nodes {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+          category
+          thumbnail {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
       }
     }
+  }
   `)
 
   if (result.errors) {
@@ -51,8 +71,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.allMarkdownRemark.nodes
-  const categories = result2.data.allMarkdownRemark.nodes
-
+  const category = result2.data.allMarkdownRemark.nodes.frontmatter.category
+  console.log('ddd');
+  console.log(category);
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
@@ -70,18 +91,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           previousPostId,
           nextPostId,
         },
-      })
-    })
-  }
-
-  if (categories.length > 0) {
-    categories.forEach((category) => {
-      createPage({
-        path: '/categories/' + category.frontmatter.category,
-        component: categoryList,
-        context: {
-          category: category.frontmatter.category,
-        }
       })
     })
   }

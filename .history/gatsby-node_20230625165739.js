@@ -9,7 +9,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // Define the template for blog post
 const blogPost = path.resolve(`./src/templates/blog-post.js`)
-const categoryList = path.resolve(`./src/templates/category-list.js`)
+
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
@@ -30,18 +30,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `)
 
-  const result2 = await graphql(`
-    {
-      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-        nodes {
-          frontmatter {
-            category
-          }
-        }
-      }
-    }
-  `)
-
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
@@ -51,7 +39,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.allMarkdownRemark.nodes
-  const categories = result2.data.allMarkdownRemark.nodes
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -71,17 +58,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nextPostId,
         },
       })
-    })
-  }
 
-  if (categories.length > 0) {
-    categories.forEach((category) => {
       createPage({
-        path: '/categories/' + category.frontmatter.category,
-        component: categoryList,
+        path: "/category",5
+5]kwm4z        component: blogPost,
         context: {
-          category: category.frontmatter.category,
-        }
+          id: post.id,
+          previousPostId,
+          nextPostId,
+        },
       })
     })
   }
