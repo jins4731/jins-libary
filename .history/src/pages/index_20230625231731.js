@@ -29,11 +29,16 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
+      <Grid
+        container
+        justifyContent={"space-between"}
+      >
         <Grid 
           container
           alignItems={"center"}
           columnSpacing={2}
           rowSpacing={3}         
+          md={10}
         >
           {posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
@@ -45,7 +50,7 @@ const BlogIndex = ({ data, location }) => {
                 xs={12} 
                 sm={6} 
                 md={4}
-                lg={3} 
+                lg={4} 
                 key={post.fields.slug}                
               >
                 <a href={post.fields.slug} style={{textDecoration: "none"}}>
@@ -75,6 +80,12 @@ const BlogIndex = ({ data, location }) => {
             )
           })}
         </Grid>
+        <Grid
+          md={2}
+        >
+          <Category posts={posts} />
+        </Grid>
+      </Grid>
     </Layout>
   )
 }

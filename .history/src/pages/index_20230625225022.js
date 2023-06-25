@@ -6,8 +6,6 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Card, CardContent, Grid} from "@mui/material"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Categories from "./categories"
-import Category from "../components/category"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -29,11 +27,15 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
+      <Grid
+        container
+      >
         <Grid 
           container
           alignItems={"center"}
           columnSpacing={2}
           rowSpacing={3}         
+          md={8}
         >
           {posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
@@ -75,6 +77,7 @@ const BlogIndex = ({ data, location }) => {
             )
           })}
         </Grid>
+      </Grid>
     </Layout>
   )
 }

@@ -1,5 +1,5 @@
 import * as React from "react"
-
+import { graphql } from "gatsby"
 import Layout from "../components/layout";
 import Bio from "../components/bio";
 
@@ -18,7 +18,7 @@ const Categories = ({ location }) => {
                     item
                     md={8}
                 >
-                    <Category />
+                    <Category posts={posts} />
                 </Grid>        
             </Grid>
         </Layout>       

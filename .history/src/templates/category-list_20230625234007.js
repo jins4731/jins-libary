@@ -5,6 +5,7 @@ import { Card, CardContent, Grid } from "@mui/material";
 import Bio from "../components/bio";
 import Layout from "../components/layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Category from "../components/category";
 
 const CategoryList = ({ data, location }) => {
     const siteTitle = data.site.siteMetadata?.title || `Title`

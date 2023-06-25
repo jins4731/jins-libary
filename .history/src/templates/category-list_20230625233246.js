@@ -5,6 +5,7 @@ import { Card, CardContent, Grid } from "@mui/material";
 import Bio from "../components/bio";
 import Layout from "../components/layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Category from "../components/category";
 
 const CategoryList = ({ data, location }) => {
     const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -13,11 +14,16 @@ const CategoryList = ({ data, location }) => {
     return(
         <Layout location={location} title={siteTitle}>
             <Bio />
+            <Grid
+              container
+              justifyContent={"space-between"}
+            >
               <Grid 
                   container
                   alignItems={"center"}
                   columnSpacing={2}
-                  rowSpacing={3}       
+                  rowSpacing={3}    
+                  md={9}     
               >
                   {posts.map(post => {
                   const title = post.frontmatter.title || post.fields.slug
@@ -28,8 +34,8 @@ const CategoryList = ({ data, location }) => {
                           item 
                           xs={12} 
                           sm={6} 
-                          md={4}
-                          lg={3} 
+                          md={5}
+                          lg={4} 
                           key={post.fields.slug}                
                       >
                           <a href={post.fields.slug} style={{textDecoration: "none"}}>
@@ -59,6 +65,12 @@ const CategoryList = ({ data, location }) => {
                   )
                   })}
               </Grid>
+              <Grid
+                md={3}
+              >
+                <Category />
+              </Grid>
+            </Grid>
         </Layout>
     )
 }

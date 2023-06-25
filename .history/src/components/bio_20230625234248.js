@@ -36,7 +36,7 @@ const Bio = () => {
 
   return (
     <div className={"bio"}>
-      <div>
+      {/* <div>
         <StaticImage
           className="bio-avatar"
           formats={["auto", "webp", "avif"]}
@@ -46,8 +46,10 @@ const Bio = () => {
           quality={95}
           alt="Profile picture"
         />
-      </div>
-
+      </div> */}
+      <Grid>
+        <Category/>
+      </Grid>
       {
         <h2>
           {title}

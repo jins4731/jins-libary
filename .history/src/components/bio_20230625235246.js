@@ -47,7 +47,9 @@ const Bio = () => {
           alt="Profile picture"
         />
       </div>
-
+      <Grid>
+        <Category/>
+      </Grid>
       {
         <h2>
           {title}

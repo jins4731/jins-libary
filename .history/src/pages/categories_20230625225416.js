@@ -1,5 +1,5 @@
 import * as React from "react"
-
+import { graphql } from "gatsby"
 import Layout from "../components/layout";
 import Bio from "../components/bio";
 
@@ -7,7 +7,9 @@ import { Grid } from "@mui/material";
 import Seo from "../components/seo";
 import Category from "../components/category";
 
-const Categories = ({ location }) => {
+const Categories = ({ data, location }) => {
+    const posts = data.allMarkdownRemark.nodes
+
     return (
         <Layout location={location}>
             <Bio/>            
@@ -18,7 +20,7 @@ const Categories = ({ location }) => {
                     item
                     md={8}
                 >
-                    <Category />
+                    <Category posts={posts} />
                 </Grid>        
             </Grid>
         </Layout>       
@@ -26,5 +28,17 @@ const Categories = ({ location }) => {
 }
 
 export  const Head = () => <Seo title="All posts" />
+
+export const pageQuery = graphql`
+  {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+      nodes {
+        frontmatter {
+          category
+        }
+      }
+    }
+  }
+`
 
 export default Categories;

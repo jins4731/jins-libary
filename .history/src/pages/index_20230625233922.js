@@ -34,6 +34,8 @@ const BlogIndex = ({ data, location }) => {
           alignItems={"center"}
           columnSpacing={2}
           rowSpacing={3}         
+          md={9}
+          lg={9}
         >
           {posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
@@ -45,7 +47,7 @@ const BlogIndex = ({ data, location }) => {
                 xs={12} 
                 sm={6} 
                 md={4}
-                lg={3} 
+                lg={4} 
                 key={post.fields.slug}                
               >
                 <a href={post.fields.slug} style={{textDecoration: "none"}}>

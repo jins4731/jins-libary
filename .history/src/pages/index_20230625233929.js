@@ -34,6 +34,8 @@ const BlogIndex = ({ data, location }) => {
           alignItems={"center"}
           columnSpacing={2}
           rowSpacing={3}         
+          md={9}
+          lg={9}
         >
           {posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
