@@ -58,7 +58,7 @@ const Header = () => {
                     </ListItemButton>
                   </ListItem>
                   <ListItem disablePadding>
-                    <ListItemButton href="category">
+                    <ListItemButton href="/categories">
                       <ListItemIcon>
                         <CategoryIcon fontSize="large"/>
                       </ListItemIcon>
